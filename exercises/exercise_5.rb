@@ -14,4 +14,9 @@ puts "----------"
 # Your code goes here ...
 
 sum = Store.sum(:annual_revenue)
-puts sum
+allCount = Store.count
+@milli_stores = Store.where("annual_revenue >= ?", [1000000]).count
+
+puts "Total revenue: #{sum}"
+puts "Average annual revenue for all stores: #{sum / allCount}"
+puts "Stores with more than $1 million in sales #{@milli_stores}" 
